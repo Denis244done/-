@@ -1,506 +1,124 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Репетитор по английскому</title>
-  <style>
-    :root {
-      --bg: #f7f8fc;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --accent: #4f46e5;
-      --accent-dark: #3730a3;
-      --line: #e5e7eb;
-      --soft: #eef2ff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Tutor</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+body{margin:0;font-family:Arial;background:#f5f5f5;color:#111}
+.container{width:90%;max-width:1100px;margin:auto}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+header{padding:20px 0;background:#111;color:#fff}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.nav a{color:#fff;margin-left:15px;text-decoration:none}
 
-    .container {
-      width: min(1100px, 92%);
-      margin: 0 auto;
-    }
+.hero{display:flex;align-items:center;justify-content:space-between;padding:80px 0}
+.hero h1{font-size:48px;margin-bottom:20px}
+.hero p{color:#555;margin-bottom:20px}
 
-    header {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      color: white;
-      padding: 22px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
+.btn{padding:12px 20px;background:#111;color:#fff;text-decoration:none;border-radius:8px}
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.section{padding:60px 0}
+.title{text-align:center;font-size:32px;margin-bottom:30px}
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.05)}
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
+footer{text-align:center;padding:30px;color:#777}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: opacity 0.2s ease;
-    }
-
-    nav a:hover {
-      opacity: 0.8;
-    }
-
-    .hero {
-      padding: 80px 0 60px;
-      background: linear-gradient(180deg, #eef2ff 0%, #f7f8fc 100%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: var(--muted);
-      margin-bottom: 28px;
-      max-width: 620px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-    }
-
-    .btn-secondary {
-      background: white;
-      color: var(--accent);
-      border: 2px solid #c7d2fe;
-    }
-
-    .hero-card {
-      background: var(--card);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 18px 40px rgba(79,70,229,0.12);
-      border: 1px solid #e0e7ff;
-    }
-
-    .hero-card h3 {
-      margin-bottom: 14px;
-      font-size: 24px;
-    }
-
-    .hero-card ul {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-      color: var(--muted);
-    }
-
-    .hero-card li {
-      background: var(--soft);
-      padding: 12px 14px;
-      border-radius: 12px;
-      color: var(--text);
-    }
-
-    section {
-      padding: 70px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 14px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: var(--muted);
-      max-width: 720px;
-      margin: 0 auto 42px;
-      font-size: 17px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 26px;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 22px;
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    .levels {
-      background: #ffffff;
-    }
-
-    .price-card {
-      text-align: center;
-      position: relative;
-    }
-
-    .badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: #ede9fe;
-      color: #6d28d9;
-      font-size: 12px;
-      font-weight: bold;
-      padding: 6px 10px;
-      border-radius: 999px;
-    }
-
-    .price {
-      font-size: 36px;
-      font-weight: bold;
-      margin: 16px 0;
-      color: var(--accent);
-    }
-
-    .price-card ul {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      margin: 20px 0 24px;
-      color: var(--muted);
-    }
-
-    .about-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 26px;
-      align-items: center;
-    }
-
-    .about-text {
-      background: var(--card);
-      padding: 28px;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-    }
-
-    .about-text p {
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .about-points {
-      display: grid;
-      gap: 14px;
-    }
-
-    .point {
-      background: var(--soft);
-      padding: 18px;
-      border-radius: 18px;
-      font-weight: 600;
-    }
-
-    .contact {
-      background: linear-gradient(135deg, #312e81, #4f46e5);
-      color: white;
-      text-align: center;
-      border-radius: 28px;
-      padding: 48px 26px;
-    }
-
-    .contact p {
-      max-width: 700px;
-      margin: 14px auto 24px;
-      color: rgba(255,255,255,0.86);
-      font-size: 17px;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .contact-links a {
-      background: white;
-      color: var(--accent);
-      text-decoration: none;
-      padding: 13px 20px;
-      border-radius: 14px;
-      font-weight: bold;
-    }
-
-    footer {
-      padding: 28px 0 40px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .about-box,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 56px;
-      }
-    }
-  </style>
+@media(max-width:800px){
+.hero{flex-direction:column}
+.grid{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <div class="logo">English Tutor</div>
-      <nav>
-        <ul>
-          <li><a href="#services">Услуги</a></li>
-          <li><a href="#levels">Формат</a></li>
-          <li><a href="#about">Обо мне</a></li>
-          <li><a href="#prices">Цены</a></li>
-          <li><a href="#contact">Контакты</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h1>Репетитор по английскому языку для взрослых и подростков</h1>
-          <p>
-            Помогаю заговорить на английском уверенно и без страха. Занятия проходят онлайн,
-            с упором на разговорную практику, полезную лексику, грамматику и реальные жизненные ситуации.
-          </p>
-          <div class="buttons">
-            <a href="#contact" class="btn btn-primary">Записаться на урок</a>
-            <a href="#prices" class="btn btn-secondary">Посмотреть цены</a>
-          </div>
-        </div>
+<header>
+<div class="container nav">
+<div><b>English Tutor</b></div>
+<div>
+<a href="#services">Услуги</a>
+<a href="#about">Обо мне</a>
+<a href="#price">Цены</a>
+<a href="#contact">Контакты</a>
+</div>
+</div>
+</header>
 
-        <div class="hero-card">
-          <h3>Что вы получите</h3>
-          <ul>
-            <li>Индивидуальную программу под ваш уровень и цель</li>
-            <li>Разговорную практику с первого занятия</li>
-            <li>Понятное объяснение грамматики без перегруза</li>
-            <li>Домашние задания и материалы после урока</li>
-            <li>Подготовку к работе, поездкам, экзаменам и собеседованиям</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<section class="hero container">
+<div>
+<h1>Помогу заговорить на английском уверенно</h1>
+<p>Живое общение, понятная грамматика и практика с первого занятия</p>
+<a href="#contact" class="btn">Записаться</a>
+</div>
 
-    <section id="services">
-      <div class="container">
-        <h2 class="section-title">Чем я могу помочь</h2>
-        <p class="section-subtitle">
-          Уроки подстраиваются под ваш запрос: от базового английского до более уверенного общения для работы и жизни.
-        </p>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Разговорный английский</h3>
-            <p>Учим фразы и конструкции, которые реально нужны в повседневной жизни, путешествиях и переписке.</p>
-          </div>
-          <div class="card">
-            <h3>Грамматика без скуки</h3>
-            <p>Разбираем времена, структуру предложений и типичные ошибки понятным языком и сразу закрепляем в речи.</p>
-          </div>
-          <div class="card">
-            <h3>Английский для целей</h3>
-            <p>Подготовка к собеседованиям, переезду, общению с иностранцами, работе онлайн и международным экзаменам.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div>
+<div style="background:#ddd;padding:40px;border-radius:20px;text-align:center">
+<h2>English with confidence</h2>
+<p>Start speaking from your first lesson</p>
+</div>
+</div>
+</section>
 
-    <section id="levels" class="levels">
-      <div class="container">
-        <h2 class="section-title">Для каких уровней</h2>
-        <p class="section-subtitle">
-          Можно начать с нуля или продолжить обучение, если у вас уже есть база, но не хватает практики и системы.
-        </p>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Beginner</h3>
-            <p>Для тех, кто только начинает. Учимся строить простые предложения, понимать базовую речь и говорить о себе.</p>
-          </div>
-          <div class="card">
-            <h3>Elementary / Pre-Intermediate</h3>
-            <p>Расширяем словарный запас, закрепляем времена и начинаем говорить увереннее на бытовые темы.</p>
-          </div>
-          <div class="card">
-            <h3>Intermediate</h3>
-            <p>Работаем над беглостью речи, сложной грамматикой, аргументацией и более естественным английским.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="services" class="section container">
+<h2 class="title">Что ты получишь</h2>
+<div class="grid">
+<div class="card">
+<h3>Разговор</h3>
+<p>Начнёшь говорить с первого урока без стресса</p>
+</div>
+<div class="card">
+<h3>Грамматика</h3>
+<p>Просто и понятно, без скучных правил</p>
+</div>
+<div class="card">
+<h3>Практика</h3>
+<p>Реальные ситуации: работа, поездки, жизнь</p>
+</div>
+</div>
+</section>
 
-    <section id="about">
-      <div class="container about-box">
-        <div class="about-text">
-          <h2 style="font-size: 34px; margin-bottom: 18px;">Обо мне</h2>
-          <p>
-            Я репетитор по английскому языку и помогаю ученикам не просто учить правила,
-            а использовать английский в реальной жизни. На уроках мы много говорим,
-            разбираем полезные темы и учимся не бояться ошибок.
-          </p>
-          <p>
-            Мой подход — дружелюбная атмосфера, понятные объяснения и уроки,
-            которые действительно хочется посещать. Программа подбирается под ваш ритм,
-            интересы и цель обучения.
-          </p>
-        </div>
-        <div class="about-points">
-          <div class="point">Онлайн-уроки из любой точки мира</div>
-          <div class="point">Индивидуальный подход к каждому ученику</div>
-          <div class="point">Современные материалы и интерактивные задания</div>
-          <div class="point">Поддержка между занятиями</div>
-        </div>
-      </div>
-    </section>
+<section id="about" class="section container">
+<h2 class="title">Обо мне</h2>
+<p style="max-width:700px;margin:auto;text-align:center">
+Я помогаю ученикам начать говорить на английском без страха.
+Уроки проходят легко, с упором на практику и реальные ситуации.
+</p>
+</section>
 
-    <section id="prices">
-      <div class="container">
-        <h2 class="section-title">Цены</h2>
-        <p class="section-subtitle">
-          Выберите удобный формат. Точные условия можно адаптировать под ваш запрос.
-        </p>
-        <div class="grid-3">
-          <div class="card price-card">
-            <h3>Пробный урок</h3>
-            <div class="price">500 ₽</div>
-            <ul>
-              <li>Знакомство</li>
-              <li>Оценка уровня</li>
-              <li>План обучения</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Хочу пробный</a>
-          </div>
+<section id="price" class="section container">
+<h2 class="title">Цены</h2>
+<div class="grid">
+<div class="card">
+<h3>Пробный</h3>
+<p>500 ₽</p>
+</div>
+<div class="card">
+<h3>Урок</h3>
+<p>1200 ₽</p>
+</div>
+<div class="card">
+<h3>Абонемент</h3>
+<p>8800 ₽</p>
+</div>
+</div>
+</section>
 
-          <div class="card price-card">
-            <div class="badge">Популярно</div>
-            <h3>Индивидуальный урок</h3>
-            <div class="price">1200 ₽</div>
-            <ul>
-              <li>60 минут</li>
-              <li>Материалы после занятия</li>
-              <li>Домашняя работа</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Записаться</a>
-          </div>
+<section id="contact" class="section container">
+<h2 class="title">Контакты</h2>
+<p style="text-align:center">Напиши мне:</p>
+<p style="text-align:center">
+Telegram: @yourname<br>
+WhatsApp: +70000000000
+</p>
+</section>
 
-          <div class="card price-card">
-            <h3>Абонемент 8 занятий</h3>
-            <div class="price">8800 ₽</div>
-            <ul>
-              <li>Выгодная цена</li>
-              <li>Системное обучение</li>
-              <li>Регулярная практика</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary">Выбрать пакет</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<footer>
+© 2026 English Tutor
+</footer>
 
-    <section>
-      <div class="container">
-        <div id="contact" class="contact">
-          <h2 style="font-size: 34px;">Запишитесь на первое занятие</h2>
-          <p>
-            Напишите мне в удобный мессенджер, и мы обсудим ваш уровень, цель и формат занятий.
-            Можно начать с пробного урока.
-          </p>
-          <div class="contact-links">
-            <a href="https://t.me/yourusername" target="_blank">Telegram</a>
-            <a href="https://wa.me/70000000000" target="_blank">WhatsApp</a>
-            <a href="mailto:yourmail@example.com">Email</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      © 2026 Репетитор по английскому языку. Все права защищены.
-    </div>
-  </footer>
 </body>
 </html>

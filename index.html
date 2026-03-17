@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Репетитор английского языка</title>
-  <meta name="description" content="Индивидуальные уроки английского языка онлайн: разговорная практика, грамматика, словарный запас, подготовка к путешествиям и работе." />
+  <meta
+    name="description"
+    content="Индивидуальные уроки английского языка онлайн: разговорная практика, грамматика, словарный запас."
+  />
   <style>
     * {
       box-sizing: border-box;
@@ -13,22 +16,23 @@
     }
 
     :root {
-      --bg: #f6f8fc;
+      --bg: #f5efe6;
       --white: #ffffff;
       --text: #1f2937;
       --muted: #6b7280;
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --soft: #dbeafe;
-      --border: #e5e7eb;
-      --shadow: 0 18px 45px rgba(37, 99, 235, 0.10);
+      --primary: #1f2937;
+      --primary-dark: #111827;
+      --soft: #ebe3d8;
+      --border: #ddd3c6;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
       --radius: 24px;
     }
 
     body {
-        background-color: #f5efe6;
-    margin: 0;
-    font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
     .container {
@@ -41,7 +45,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.92);
+      background: rgba(245, 239, 230, 0.92);
       border-bottom: 1px solid var(--border);
     }
 
@@ -74,7 +78,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary);
+      color: var(--primary-dark);
     }
 
     .hero {
@@ -83,8 +87,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 36px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
       align-items: center;
     }
 
@@ -93,7 +97,7 @@
       padding: 8px 14px;
       border-radius: 999px;
       background: var(--soft);
-      color: var(--primary-dark);
+      color: var(--primary);
       font-size: 14px;
       font-weight: 700;
       margin-bottom: 18px;
@@ -140,9 +144,9 @@
     }
 
     .btn-secondary {
-      background: var(--white);
+      background: transparent;
       color: var(--primary);
-      border: 1px solid #bfdbfe;
+      border: 1px solid var(--border);
     }
 
     .btn-secondary:hover {
@@ -154,37 +158,117 @@
       font-size: 14px;
     }
 
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .teacher-photo {
-      width: 100%;
-      height: 220px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    .hero-image {
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 70px;
-      margin-bottom: 20px;
+      align-items: center;
     }
 
-    .profile-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
+    .macbook {
+      width: 100%;
+      max-width: 470px;
+      filter: drop-shadow(0 24px 35px rgba(0, 0, 0, 0.12));
     }
 
-    .profile-item {
+    .macbook-screen {
+      background: #d8dee8;
+      border: 10px solid #1f2937;
+      border-bottom-width: 14px;
+      border-radius: 22px 22px 12px 12px;
+      aspect-ratio: 16 / 10;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .macbook-camera {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #111827;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .screen-ui {
       background: #f8fafc;
-      border: 1px solid var(--border);
-      padding: 14px 16px;
-      border-radius: 16px;
+      border-radius: 14px;
+      width: 100%;
+      height: 100%;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+    }
+
+    .screen-bar {
+      height: 10px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cbd5e1;
+    }
+
+    .screen-title {
+      font-size: clamp(20px, 3vw, 34px);
+      line-height: 1.05;
+      font-weight: 700;
+      text-align: center;
+      color: #111827;
+    }
+
+    .screen-subtitle {
+      font-size: clamp(14px, 2vw, 18px);
+      text-align: center;
+      color: #374151;
+    }
+
+    .screen-text {
+      font-size: 14px;
+      text-align: center;
+      color: #6b7280;
+    }
+
+    .screen-button {
+      margin: 4px auto 0;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #111827;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      width: fit-content;
+    }
+
+    .macbook-base {
+      width: 108%;
+      height: 16px;
+      margin-left: -4%;
+      background: linear-gradient(to bottom, #d1d5db, #bfc6cf);
+      border-radius: 0 0 18px 18px;
+      position: relative;
+    }
+
+    .macbook-base::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 1px;
+      width: 120px;
+      height: 6px;
+      background: #aeb6c1;
+      border-radius: 0 0 10px 10px;
     }
 
     section {
@@ -210,20 +294,31 @@
       gap: 22px;
     }
 
-    .feature, .price, .review, .contact-box {
-      background: var(--white);
+    .feature,
+    .price,
+    .review,
+    .contact-box,
+    .about-box {
+      background: rgba(255, 255, 255, 0.58);
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 24px;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      backdrop-filter: blur(6px);
     }
 
-    .feature h3, .price h3, .review h3, .contact-box h3 {
+    .feature h3,
+    .price h3,
+    .review h3,
+    .contact-box h3 {
       font-size: 22px;
       margin-bottom: 10px;
     }
 
-    .feature p, .price p, .review p, .contact-box p {
+    .feature p,
+    .price p,
+    .review p,
+    .contact-box p {
       color: var(--muted);
     }
 
@@ -231,7 +326,7 @@
       width: 52px;
       height: 52px;
       border-radius: 16px;
-      background: var(--soft);
+      background: #efe6da;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -259,14 +354,6 @@
       align-items: center;
     }
 
-    .about-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 30px;
-      box-shadow: var(--shadow);
-    }
-
     .stats {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -275,7 +362,7 @@
     }
 
     .stat {
-      background: #f8fafc;
+      background: rgba(255, 255, 255, 0.55);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 18px;
@@ -289,12 +376,13 @@
     }
 
     .cta {
-      background: linear-gradient(135deg, #2563eb, #3b82f6);
-      color: white;
+      background: #d8cec1;
+      color: #1f2937;
       border-radius: 32px;
       padding: 42px 28px;
       text-align: center;
       box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
     .cta h2 {
@@ -305,13 +393,7 @@
     .cta p {
       max-width: 700px;
       margin: 0 auto 22px;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .cta .btn-secondary {
-      background: white;
-      border: none;
-      color: var(--primary);
+      color: #4b5563;
     }
 
     .contact-grid {
@@ -342,6 +424,10 @@
 
       .hero {
         padding-top: 56px;
+      }
+
+      .hero-image {
+        margin-top: 10px;
       }
     }
   </style>
@@ -379,25 +465,24 @@
           </div>
           <div class="small-note">Первое ознакомительное занятие — по договоренности</div>
         </div>
-       <div class="hero-image">
-    <div class="macbook">
-        <div class="screen">
-            <h2>English with Denis</h2>
-            <p>Speak confidently from your first lessons</p>
-        </div>
-    </div>
-</div>
-</div> <!-- hero-grid -->
 
-          <h2 style="margin-bottom: 10px;">Ваш преподаватель английского</h2>
-          <p style="color:#6b7280;">
-            Комфортные уроки, дружелюбная атмосфера, реальные темы для общения
-            и обучение в удобном темпе.
-          </p>
-          <div class="profile-list">
-            <div class="profile-item"><strong>Формат:</strong> онлайн / индивидуально</div>
-            <div class="profile-item"><strong>Уровни:</strong> Beginner – Intermediate</div>
-            <div class="profile-item"><strong>Фокус:</strong> speaking, grammar, vocabulary</div>
+        <div class="hero-image">
+          <div class="macbook">
+            <div class="macbook-screen">
+              <div class="macbook-camera"></div>
+              <div class="screen-ui">
+                <div class="screen-bar">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="screen-title">English with confidence</div>
+                <div class="screen-subtitle">Start speaking from your first lesson</div>
+                <div class="screen-text">Уютный формат, понятная подача и живая практика</div>
+                <div class="screen-button">Book a lesson</div>
+              </div>
+            </div>
+            <div class="macbook-base"></div>
           </div>
         </div>
       </div>
@@ -419,6 +504,7 @@
             подготовке к интервью или поддержании языка.
           </p>
         </div>
+
         <div class="about-box">
           <h2 style="font-size: 28px; margin-bottom: 14px;">Почему ученикам удобно заниматься</h2>
           <div class="stats">
@@ -439,17 +525,20 @@
           базовая грамматика, пополнение словаря, английский для поездок, работы
           или повседневной жизни.
         </p>
+
         <div class="grid-3">
           <div class="feature">
             <div class="icon">🗣️</div>
             <h3>Разговорная практика</h3>
             <p>Учимся говорить естественно, строить ответы, поддерживать диалог и не бояться ошибок.</p>
           </div>
+
           <div class="feature">
             <div class="icon">✍️</div>
             <h3>Понятная грамматика</h3>
             <p>Без перегруза правилами. Только то, что действительно помогает говорить и писать лучше.</p>
           </div>
+
           <div class="feature">
             <div class="icon">📚</div>
             <h3>Живая лексика</h3>
@@ -465,6 +554,7 @@
         <p class="section-subtitle">
           Выберите формат, который подходит именно вам. Стоимость и текст можно легко заменить под ваши условия.
         </p>
+
         <div class="grid-3">
           <div class="price">
             <h3>Пробный урок</h3>
@@ -476,6 +566,7 @@
               <li>рекомендации по обучению</li>
             </ul>
           </div>
+
           <div class="price">
             <h3>Индивидуальный урок</h3>
             <strong>1200 ₽</strong>
@@ -486,6 +577,7 @@
               <li>материалы после урока</li>
             </ul>
           </div>
+
           <div class="price">
             <h3>Пакет 8 уроков</h3>
             <strong>8800 ₽</strong>
@@ -506,15 +598,18 @@
         <p class="section-subtitle">
           Ниже пример блока с отзывами. Сюда можно добавить реальные отзывы, скриншоты или карточки из соцсетей.
         </p>
+
         <div class="grid-3">
           <div class="review">
             <h3>Анна</h3>
             <p>Очень нравится формат уроков. Всё понятно, спокойно и без давления. Стало легче говорить на английском.</p>
           </div>
+
           <div class="review">
             <h3>Марина</h3>
             <p>Наконец-то начала понимать времена и использовать их в речи. Уроки живые и интересные.</p>
           </div>
+
           <div class="review">
             <h3>Игорь</h3>
             <p>Занимаемся для поездок и общения. Уже через несколько занятий почувствовал уверенность.</p>
@@ -531,7 +626,7 @@
             Напишите мне, и мы подберём удобный формат занятий, обсудим ваш уровень
             и цели, а также составим комфортный план обучения.
           </p>
-          <a class="btn btn-secondary" href="#contacts">Связаться со мной</a>
+          <a class="btn btn-primary" href="#contacts">Связаться со мной</a>
         </div>
       </div>
     </section>
@@ -542,15 +637,18 @@
         <p class="section-subtitle">
           Замените данные ниже на свои: Telegram, WhatsApp, Instagram, email или любой другой способ связи.
         </p>
+
         <div class="contact-grid">
           <div class="contact-box">
             <h3>Telegram</h3>
             <p>@yourname</p>
           </div>
+
           <div class="contact-box">
             <h3>WhatsApp</h3>
             <p>+7 (000) 000-00-00</p>
           </div>
+
           <div class="contact-box">
             <h3>Email</h3>
             <p>yourmail@example.com</p>

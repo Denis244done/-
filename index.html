@@ -84,34 +84,12 @@ p {
 .hero-image {
   display: flex;
   justify-content: center;
+  .hero-img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
 }
-
-.macbook {
-  width: 400px;
-}
-
-.screen {
-  background: #d1d5db;
-  border: 8px solid black;
-  border-radius: 15px;
-  padding: 20px;
-}
-
-.screen-inner {
-  background: white;
-  border-radius: 10px;
-  padding: 30px;
-  text-align: center;
-}
-
-.screen-inner h2 {
-  margin-bottom: 10px;
-}
-
-.base {
-  height: 12px;
-  background: #ccc;
-  border-radius: 0 0 10px 10px;
 }
 
 /* MOBILE */
@@ -147,17 +125,9 @@ p {
     </div>
 
     <!-- MACBOOK -->
-    <div class="hero-image">
-      <div class="macbook">
-        <div class="screen">
-          <div class="screen-inner">
-            <h2>English with confidence</h2>
-            <p>Start speaking from your first lesson</p>
-          </div>
-        </div>
-        <div class="base"></div>
-      </div>
-    </div>
+ <div class="hero-image">
+  <img src="https://images.unsplash.com/photo-1544717305-2782549b5136" alt="English lessons online" class="hero-img">
+</div>
 
   </div>
 </section>
